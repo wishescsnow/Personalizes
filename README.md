@@ -1,3 +1,3 @@
 # Personalizes
 
-Personalizes is a personal management system powered by Angular2.
+Personalizes is a personal management application powered by Angular2.
