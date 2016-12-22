@@ -1,0 +1,21 @@
+@import '~@angular/material/core/theming/all-theme';
+
+// Include non-theme styles for core.
+@include md-core();
+
+// Define a theme.
+$primary:   md-palette($md-deep-purple);
+$accent:    md-palette($md-pink);
+$personal:  md-palette($md-green, 400);
+$work:      md-palette($md-blue, 400);
+$critical:  md-palette($md-red, 600);
+$daily:     md-palette($md-amber, 400);
+$weekly:    md-palette($md-deep-orange, 400);
+$monthly:   md-palette($md-pink, 300);
+$default:   md-palette($md-grey, 800);
+$warn:      md-palette($md-red);
+
+$theme: md-dark-theme($primary, $accent);
+
+// Include all theme styles for the components.
+@include angular-material-theme($theme);

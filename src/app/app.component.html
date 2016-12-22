@@ -1,0 +1,21 @@
+<md-toolbar>
+    <span>{{title}}</span>
+</md-toolbar>
+<div>
+    <md-sidenav-layout>
+        <md-sidenav [opened]="true" mode="side">
+            <ul class="sidemenu">
+                <li>My Profile</li>
+                <li>My Tasks</li>
+                <li>My Files</li>
+                <li>My Money</li>
+                <li>My Entertainment</li>
+            </ul>
+        </md-sidenav>
+        <div class="content">
+            <img-slides></img-slides>
+            <undo-lists></undo-lists>
+        </div>
+    </md-sidenav-layout>
+</div>
+<template ngbModalContainer></template>

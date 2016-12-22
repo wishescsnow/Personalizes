@@ -1,0 +1,89 @@
+<md-toolbar>
+    <span>Undo Lists</span>
+    <span class="fill-remaining-space"></span>
+    <span>
+        <button md-button (click)="openUndoCard(cardCreate)">
+            <md-icon>add</md-icon>
+        </button>
+    </span>
+</md-toolbar>
+<div class="cardContainer">
+    <md-card *ngFor="let item of undoItems | async" [ngClass]="getCardColor(item.category)">
+        <md-card-header>
+            <img md-card-avatar [src]="getCardIcon(item.category)">
+            <md-card-subtitle [ngClass]="getCardColor(item.category)">{{item.category}}</md-card-subtitle>
+        </md-card-header>
+        <md-card-content>
+            <md-card-title>{{item.title}}</md-card-title>
+            <p>{{item.desc}}</p>
+        </md-card-content>
+        <md-card-actions>
+            <button md-button (click)="openUndoCard(cardEdit, item)"><md-icon>edit</md-icon></button>
+            <button md-button (click)="openUndoCard(cardDelete, item)"><md-icon>delete</md-icon></button>
+        </md-card-actions>
+    </md-card>
+</div>
+
+<template #cardCreate let-c="close" let-d="dismiss">
+    <div class="card">
+        <div class="modal-header">
+            <button type="button" class="close" aria-label="Close" (click)="d()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div>
+                <md-input #newTitle placeholder="Title" type="text"></md-input>
+            </div>
+            <div>
+                <md-input #newCategory placeholder="Category" type="text"></md-input>
+            </div>
+        </div>
+        <div class="modal-body">
+            <md-textarea #newDesc class="descriptionBox" placeholder="Description" rows="10"></md-textarea>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="insertUndoItem(newTitle.value, newCategory.value, newDesc.value)">Create</button>
+            <button type="button" class="btn btn-secondary" (click)="c()">Close</button>
+        </div>
+    </div>
+</template>
+
+<template #cardEdit let-c="close" let-d="dismiss">
+    <div class="card">
+        <div class="modal-header">
+            <button type="button" class="close" aria-label="Close" (click)="d()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div>
+                <md-input #updateTitle placeholder="Title" type="text" value={{selectedItem.title}}></md-input>
+            </div>
+            <div>
+                <md-input #updateCategory placeholder="Category" type="text" value={{selectedItem.category}}></md-input>
+            </div>
+        </div>
+        <div class="modal-body">
+            <md-textarea #updateDesc class="descriptionBox" placeholder="Description" value={{selectedItem.desc}} rows="10"></md-textarea>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="saveUndoItem(selectedItem.$key, updateTitle.value, updateCategory.value, updateDesc.value)">Save</button>
+            <button type="button" class="btn btn-secondary" (click)="c()">Close</button>
+        </div>
+    </div>
+</template>
+
+<template #cardDelete let-c="close" let-d="dismiss">
+    <div class="card">
+        <div class="modal-header">
+            <button type="button" class="close" aria-label="Close" (click)="d()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h2>Delete Confirmation</h2>
+        </div>
+        <div class="modal-body">
+            <p>Are you sure to delete this card?</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="deleteUndoItem(selectedItem.$key);c()">Yes</button>
+            <button type="button" class="btn btn-secondary" (click)="c()">No</button>
+        </div>
+    </div>
+</template>

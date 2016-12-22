@@ -1,0 +1,63 @@
+@import '../../personalizes-app.scss';
+
+md-toolbar {
+    background-color: md-color($primary, 400);
+}
+
+md-card {
+    width: 16.5em;
+    margin: 1em;
+    float: left;
+}
+
+.md-card-personal {
+    background-color: md-color($personal);
+    color: #000000;
+}
+
+.md-card-work {
+    background-color: md-color($work);
+    color: #000000;
+}
+
+.md-card-critical {
+    background-color: md-color($critical);
+    color: #000000;
+}
+
+.md-card-daily {
+    background-color: md-color($daily);
+    color: #000000;
+}
+
+.md-card-weekly {
+    background-color: md-color($weekly);
+    color: #000000;
+}
+
+.md-card-monthly {
+    background-color: md-color($monthly);
+    color: #000000;
+}
+
+.md-card-default {
+    background-color: md-color($default);
+    color: #FFFFFF;
+}
+
+.descriptionBox {
+    width: 100%;
+}
+
+.fill-remaining-space {
+    flex: 1 1 auto;
+}
+
+.cardContainer {
+    overflow: auto;
+}
+
+.card {
+    background-color: md-color($primary, 100);
+    color: md-color($accent, A400);
+}

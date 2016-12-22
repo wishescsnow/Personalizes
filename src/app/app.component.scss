@@ -1,0 +1,34 @@
+@import '../personalizes-app.scss';
+
+md-toolbar {
+    background-color: md-color($primary, 500);
+}
+
+md-sidenav {
+    min-width: 15em;
+    background-color: md-color($accent, A100);
+}
+
+.sidemenu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidemenu li {
+    font-size: 1.4em;
+    cursor: pointer;    
+    height: 3.6em;
+    padding: 1em 0 0 0;
+    text-indent: 2em;
+    border-bottom: solid;
+}
+
+.sidemenu li:hover {
+    font-weight: bold;
+    background-color: md-color($accent, A200);
+}
+
+.content {
+    min-width: 16em;
+    background-color: md-color($primary, 50);
+}
