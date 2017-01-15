@@ -7,6 +7,13 @@
         </button>
     </span>
 </md-toolbar>
+
+<md-button-toggle-group>
+    <md-button-toggle *ngFor="let category of categories" (change)="listChanged($event)" value="{{category.$value}}">
+        {{category.$value}}
+    </md-button-toggle>
+</md-button-toggle-group>
+
 <div class="cardContainer">
     <md-card *ngFor="let item of undoItems | async" [ngClass]="getCardColor(item.category)">
         <md-card-header>

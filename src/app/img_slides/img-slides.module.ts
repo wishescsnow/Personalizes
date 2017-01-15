@@ -12,7 +12,7 @@ import { ImageService } from './image.service'
       CarouselModule
   ],
   declarations: [
-    ImgSlidesComponent
+      ImgSlidesComponent
   ],
   exports:      [ ImgSlidesComponent ],
   providers:    [ ImageService ]

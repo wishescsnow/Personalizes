@@ -10,6 +10,20 @@ md-card {
     float: left;
 }
 
+md-button-toggle-group {
+    box-shadow: none;
+    width: 100%;
+    background-color: md-color($primary, 200);
+}
+
+md-button-toggle {
+    color: #000000;
+}
+
+.md-button-toggle-checked {
+    background-color: md-color($accent, A100);
+}
+
 .md-card-personal {
     background-color: md-color($personal);
     color: #000000;

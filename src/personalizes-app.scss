@@ -15,7 +15,8 @@ $monthly:   md-palette($md-pink, 300);
 $default:   md-palette($md-grey, 800);
 $warn:      md-palette($md-red);
 
-$theme: md-dark-theme($primary, $accent);
+$light-theme: md-light-theme($primary, $accent, $warn);
+$dark-theme: md-dark-theme($primary, $accent);
 
 // Include all theme styles for the components.
-@include angular-material-theme($theme);
+@include angular-material-theme($light-theme);

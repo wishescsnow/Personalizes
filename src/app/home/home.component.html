@@ -1,0 +1,18 @@
+<div class="page-layout">
+    <md-sidenav-container class="flex-container" fullscreen>
+        <md-sidenav [opened]="true" mode="side">
+            <ul class="sidemenu">
+                <li><a routerLink="./dashboard">My Dashboard</a></li>
+                <li><a routerLink="./profile">My Profile</a></li>
+                <li><a routerLink="./tasks">My Tasks</a></li>
+                <li><a routerLink="./files">My Files</a></li>
+                <li><a routerLink="./money">My Money</a></li>
+                <li><a routerLink="./entertainment">My Entertainment</a></li>
+                <li (click)="signOut()">Sign Out</li>
+            </ul>
+        </md-sidenav>
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+    </md-sidenav-container>
+</div>

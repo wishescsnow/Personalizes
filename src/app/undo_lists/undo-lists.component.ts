@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
-import { firebaseAuthConfig } from './../../environments/environment';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -15,11 +14,16 @@ import { UndoItem } from './undo-item';
 
 export class UndoListsComponent {
     undoItems: FirebaseListObservable<UndoItem[]>;
+    categories: any[];
     selectedItem : FirebaseObjectObservable<UndoItem>;
 
     constructor(private af: AngularFire, private modalService: NgbModal) {
-        af.auth.login(firebaseAuthConfig);
         this.undoItems = af.database.list('/undoItems');
+        af.database.list('/categories').subscribe(
+            categories => (
+                this.categories = categories
+            )
+        );
     }
 
     getCardColor(category: string) {
@@ -54,6 +58,15 @@ export class UndoListsComponent {
             return "../app/resources/images/critical.jpg";
         else
             return "../app/resources/images/critical.jpg";
+    }
+
+    listChanged(event: any) {
+        this.undoItems = this.af.database.list('/undoItems', {
+            query: {
+                orderByChild: 'category',
+                equalTo: event.value
+            }
+        });
     }
 
     openUndoCard(content: any, undoItem?: FirebaseObjectObservable<UndoItem>) {

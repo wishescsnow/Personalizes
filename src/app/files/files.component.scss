@@ -1,0 +1,14 @@
+@import '../../personalizes-app.scss';
+
+md-input {
+    color: md-color($accent, A200);
+}
+
+.file-page {
+    margin-left: 2em;
+}
+
+.confirm {
+    background-color: md-color($primary, 100);
+    color: md-color($accent, A400);
+}

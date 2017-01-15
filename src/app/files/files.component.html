@@ -1,0 +1,44 @@
+<h2>My Files Page</h2>
+<button md-button (click)="toggleRecord()">
+    <md-icon>add</md-icon>
+</button>
+<div *ngIf="addFlag">
+    <md-input #saveSite placeholder="Site" type="text" value=""></md-input>
+    <md-input #saveUser placeholder="Username" type="text" value=""></md-input>
+    <md-input #savePass placeholder="Password" type="text" value=""></md-input>
+    <button md-button (click)="saveRecord(saveSite.value, saveUser.value, savePass.value)">
+        <md-icon>save</md-icon>
+    </button>
+    <button md-button (click)="toggleRecord()">
+        <md-icon>cancel</md-icon>
+    </button>
+</div>
+<div class="file-page" *ngFor="let rec of files | async">
+    <md-input #saveSite placeholder="Site" type="text" value="{{rec.site}}"></md-input>
+    <md-input #saveUser placeholder="Username" type="text" value="{{rec.username}}"></md-input>
+    <md-input #savePass placeholder="Password" type="text" value="{{rec.password}}"></md-input>
+    <button md-button (click)="saveRecord(saveSite.value, saveUser.value, savePass.value, rec.$key)">
+        <md-icon>save</md-icon>
+    </button>
+    <button md-button (click)="confirmDelete(recDelete, rec)">
+        <md-icon>delete</md-icon>
+    </button>
+</div>
+
+<template #recDelete let-c="close" let-d="dismiss">
+    <div class="confirm">
+        <div class="modal-header">
+            <button type="button" class="close" aria-label="Close" (click)="d()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h2>Delete Confirmation</h2>
+        </div>
+        <div class="modal-body">
+            <p>Are you sure to delete this record?</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="deleteRecord(selectedRecord.$key);c()">Yes</button>
+            <button type="button" class="btn btn-secondary" (click)="c()">No</button>
+        </div>
+    </div>
+</template>
