@@ -12,13 +12,13 @@ import { ImageService } from './image.service'
 export class ImgSlidesComponent {
     imgSlides: Image[];
 
-    constructor(private imgSlideService: ImageService) { }
+    constructor(private _imgSlideService: ImageService) { }
 
     ngOnInit(): void{
         this.getImages();
     }
 
     getImages(): void {
-        this.imgSlideService.getImages().then(imgSlides => this.imgSlides = imgSlides);
+        this._imgSlideService.getImages().then(imgSlides => this.imgSlides = imgSlides);
     }
 }

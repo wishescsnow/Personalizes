@@ -14,7 +14,7 @@
     </md-button-toggle>
 </md-button-toggle-group>
 
-<div class="cardContainer">
+<div class="card-container">
     <md-card *ngFor="let item of undoItems | async" [ngClass]="getCardColor(item.category)">
         <md-card-header>
             <img md-card-avatar [src]="getCardIcon(item.category)">

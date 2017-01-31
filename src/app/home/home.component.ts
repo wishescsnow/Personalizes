@@ -1,19 +1,17 @@
 import { Component } from '@angular/core';
-
-import { AngularFire } from 'angularfire2';
+import { AuthenticationService } from '../login/auth.service'
 
 @Component({
     selector: 'home',
     templateUrl: './home.component.html',
+    providers: [ AuthenticationService ],
     styleUrls: ['./home.component.scss']
 })
 
 export class HomeComponent {
-    constructor(private af: AngularFire) {
-    }
+    constructor(private _service: AuthenticationService) {}
 
-    signOut() {
-        this.af.auth.logout();
-        console.log('Sign out successfully!');
+    logOut() {
+        this._service.logout();
     }
 }

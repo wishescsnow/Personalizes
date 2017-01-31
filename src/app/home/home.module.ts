@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { CalendarModule } from 'angular-calendar';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { ImgSlidesModule } from '../img_slides/img-slides.module';
@@ -23,7 +26,10 @@ import { HomeComponent } from './home.component';
         HomeRoutingModule,
         ImgSlidesModule,
         UndoListsModule,
-        FilesModule
+        FilesModule,
+        ChartsModule,
+        CalendarModule.forRoot(),
+        FlexLayoutModule.forRoot()
     ],
     declarations: [
         HomeComponent,

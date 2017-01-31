@@ -1,0 +1,19 @@
+@import '../../personalizes-app.scss';
+
+.undo-card {
+    color: black;
+    background-color: md-color($primary, 100);
+    padding: 1em 1.5em 1em 1.5em;
+    width: 18em;
+    height: 10em;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+.undo-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.undo-card > h4 {
+    font-weight: bold;
+}

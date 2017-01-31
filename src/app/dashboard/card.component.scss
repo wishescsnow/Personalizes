@@ -1,0 +1,19 @@
+@import '../../personalizes-app.scss';
+
+.generic-card {
+    color: black;
+    background-color: md-color($primary, 100);
+    width: 42em;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+.generic-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.generic-card > h4 {
+    padding: 0.5em;
+    text-align: center;
+    border-bottom: 2px solid md-color($primary, 300);
+}

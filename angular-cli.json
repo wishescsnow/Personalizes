@@ -19,9 +19,12 @@
       "mobile": false,
       "styles": [
         "styles.css",
-        "personalizes-app.scss"
+        "personalizes-app.scss",
+        "./styles/calendar/angular-calendar.scss"
       ],
-      "scripts": [],
+      "scripts": [
+          "../node_modules/chart.js/dist/Chart.bundle.js"
+      ],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",

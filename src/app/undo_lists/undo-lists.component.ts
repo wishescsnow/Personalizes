@@ -17,9 +17,9 @@ export class UndoListsComponent {
     categories: any[];
     selectedItem : FirebaseObjectObservable<UndoItem>;
 
-    constructor(private af: AngularFire, private modalService: NgbModal) {
-        this.undoItems = af.database.list('/undoItems');
-        af.database.list('/categories').subscribe(
+    constructor(private _af: AngularFire, private modalService: NgbModal) {
+        this.undoItems = _af.database.list('/undoItems');
+        _af.database.list('/categories').subscribe(
             categories => (
                 this.categories = categories
             )
@@ -61,7 +61,7 @@ export class UndoListsComponent {
     }
 
     listChanged(event: any) {
-        this.undoItems = this.af.database.list('/undoItems', {
+        this.undoItems = this._af.database.list('/undoItems', {
             query: {
                 orderByChild: 'category',
                 equalTo: event.value
@@ -75,7 +75,7 @@ export class UndoListsComponent {
     }
 
     saveUndoItem(key: string, newTitle: string, newCategory: string, newDesc: string) {
-        this.af.database.list('/undoItems').update(key, {
+        this._af.database.list('/undoItems').update(key, {
             title: newTitle,
             category: newCategory,
             desc: newDesc,

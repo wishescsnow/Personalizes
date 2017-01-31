@@ -1,1 +1,42 @@
-<img-slides></img-slides>
+<div class="flex-container pagecontainer" fxLayout="column" fxLayoutAlign="space-around">
+    <div class="flex-container flex-item rowcontainer" fxLayout="row" fxLayoutAlign="space-around">
+        <img-slides class="flex-item"></img-slides>
+        <div class="flex-container flex-item" fxLayout="column" fxLayoutAlign="space-around">
+            <div class="undo-card flex-item">
+                <h4>Critical</h4>
+                <p>example</p>
+            </div>
+            <div class="undo-card flex-item">
+                <h4>Daily</h4>
+                <p>example</p>
+            </div>
+        </div>
+        <div class="flex-container flex-item" fxLayout="column" fxLayoutAlign="space-around">
+            <div class="undo-card flex-item">
+                <h4>Work</h4>
+                <p>example</p>
+            </div>
+            <div class="undo-card flex-item">
+                <h4>Personal</h4>
+                <p>example</p>
+            </div>
+        </div>
+    </div>
+    <div class="flex-container flex-item rowcontainer" fxLayout="row" fxLayoutAlign="space-around">
+        <div class="generic-card flex-item">
+            <h4>Money Flow</h4>
+            <canvas baseChart
+                [data]="doughnutChartData"
+                [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType"
+                [options]="doughnutChartOptions"></canvas>
+        </div>
+        <div class="generic-card flex-item">
+            <h4>Events</h4>
+            <mwl-calendar-month-view
+                [viewDate]="viewDate"
+                [events]="events">
+            </mwl-calendar-month-view>
+        </div>
+    </div>
+</div>

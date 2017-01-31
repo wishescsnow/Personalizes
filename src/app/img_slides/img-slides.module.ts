@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CarouselModule } from 'ng2-bootstrap';
+import { CarouselModule } from 'ng2-bootstrap/carousel';
 
-import { ImgSlidesComponent } from './img-slides.component'
-import { ImageService } from './image.service'
+import { ImgSlidesComponent } from './img-slides.component';
+import { ImageService } from './image.service';
 
 @NgModule({
   imports:      [
       CommonModule,
-      CarouselModule
+      CarouselModule.forRoot()
   ],
   declarations: [
       ImgSlidesComponent

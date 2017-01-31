@@ -17,8 +17,8 @@ export class FilesComponent {
     selectedRecord: FirebaseObjectObservable<FilesData>;
     addFlag: Boolean;
 
-    constructor(private af: AngularFire, private modalService: NgbModal) {
-        this.files = af.database.list('/filesData');
+    constructor(private _af: AngularFire, private _modalService: NgbModal) {
+        this.files = _af.database.list('/filesData');
         this.addFlag = false;
     }
 
@@ -28,12 +28,12 @@ export class FilesComponent {
 
     confirmDelete(content: any, record?: FirebaseObjectObservable<FilesData>) {
         this.selectedRecord = record;
-        this.modalService.open(content);
+        this._modalService.open(content);
     }
 
     saveRecord(newSite: string, newUser: string, newPass: string, key?: string) {
         if(key){
-            this.af.database.list('/filesData').update(key, {
+            this._af.database.list('/filesData').update(key, {
                 site: newSite,
                 username: newUser,
                 password: newPass,
